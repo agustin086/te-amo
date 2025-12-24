@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Brenda❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #8e2de2);
+    overflow: hidden;
+}
+
+/* PORTADA */
+#portada {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+#portada .contenido {
+    background: rgba(255,255,255,0.2);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+#portada h1 {
+    font-size: 2.5em;
+}
+
+#portada h2 {
+    font-weight: normal;
+}
+
+#botonAbrir {
+    margin-top: 25px;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    background: #fff;
+    color: #ff5f6d;
+    cursor: pointer;
+}
+
+/* CARTA */
+#carta {
+    display: none;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+.caja {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 25px;
+}
+
+/* FOTOS */
+.slider img {
+    width: 100%;
+    border-radius: 20px;
+    margin: 15px 0;
+}
+
+/* CORAZONES */
+.corazon {
+    position: absolute;
+    color: rgba(255,255,255,0.7);
+    font-size: 20px;
+    animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<div id="portada">
+    <div class="contenido">
+        <h1>💖 Para la mejor novia del mundo 💖</h1>
+        <h2>Feliz cumpleaños, amor 🎂</h2>
+        <button id="botonAbrir">Abrir carta 💌</button>
+    </div>
+</div>
+
+<!-- MÚSICA -->
+<audio id="musica" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CARTA -->
+<div id="carta">
+    <div class="caja">
+
+        <h1>Feliz cumpleaños 19, Brenda ❤️</h1>
+
+        <p>
+            Hoy no solo celebro tu cumpleaños, celebro el regalo más hermoso
+            que la vida me pudo dar: tú.
+        </p>
+
+        <p>
+            Desde que llegaste a mi vida todo cambió. Cambió mi forma de sonreír,
+            de amar y de soñar. Contigo aprendí lo que es querer de verdad,
+            sin dudas, sin miedo, con el corazón completo.
+        </p>
+
+        <p>
+            Gracias por ser tú, por tu paciencia, tu cariño, tu forma de mirarme
+            y por hacerme sentir amado como nunca antes.
+            Te prometo cuidarte, respetarte y amarte cada día más.
+        </p>
+
+        <p>
+            No importa lo que venga, quiero que sepas que aquí tienes a alguien
+            que te ama con todo su corazón y que siempre va a estar para ti.
+        </p>
+
+        <h2>Te amo infinitamente ❤️</h2>
+
+        <!-- FOTOS -->
+        <div class="slider">
+    <img src="foto1.jpeg">
+    <img src="foto2.jpeg">
+    <img src="foto3.jpeg">
+    <img src="foto4.jpeg">
+    <img src="foto5.jpeg">
+    <img src="foto6.jpeg">
+</div>
+
+
+        <p>
+            Con todo mi amor,<br>
+            <strong>Tu novio</strong>
+        </p>
+
+    </div>
+</div>
+
+<script>
+// Abrir carta
+document.getElementById("botonAbrir").onclick = () => {
+    document.getElementById("portada").style.display = "none";
+    document.getElementById("carta").style.display = "block";
+    document.getElementById("musica").play();
+    setInterval(crearCorazon, 300);
+};
+
+// Corazones
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.className = "corazon";
+    corazon.innerHTML = "❤️";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = Math.random() * 30 + 15 + "px";
+    document.body.appendChild(corazon);
+
+    setTimeout(() => corazon.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
